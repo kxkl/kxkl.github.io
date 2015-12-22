@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript" src="lib/collie.js"></script>
+<script type="text/javascript">
+var layer = new collie.Layer({
+        width : 300,
+        height : 300
+    });
+     
+    var item = new collie.DisplayObject({
+        width : 20,
+        height : 20,
+        x : 10,
+        y : 10,
+        backgroundColor : 'red'
+    }).addTo(layer);
+     
+    collie.Timer.cycle(item, 2000, {
+        from: 10,
+        to: 200,
+        step: 20,
+        set: "x"
+    });
+     
+    collie.Renderer.addLayer(layer);
+    collie.Renderer.load(document.getElementById("container"));
+    collie.Renderer.start();
+</script>
+</body>
+</html>
